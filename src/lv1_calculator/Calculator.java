@@ -75,6 +75,7 @@ public class Calculator {
 //            }
 //        }
 
+
         // switch문으로 작성
         int result = 0;
         switch (mark) {
