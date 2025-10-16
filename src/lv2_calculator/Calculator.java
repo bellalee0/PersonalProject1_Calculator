@@ -24,4 +24,8 @@ public class Calculator {
     void setResult(String result) {
         results.add(result);
     }
+
+    void removeResult() {
+        results.remove(0);
+    }
 }
