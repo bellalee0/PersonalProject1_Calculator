@@ -3,7 +3,7 @@ package lv2_calculator;
 import java.util.ArrayList;
 
 public class Calculator {
-    ArrayList<Integer> results = new ArrayList<Integer>();
+    private ArrayList<String> results = new ArrayList<String>();
 
     public int Calculate(int num1, char mark, int num2){
         int result = 0;
@@ -15,5 +15,13 @@ public class Calculator {
             default -> 0;
         };
         return result;
+    }
+
+    ArrayList<String> getResult() {
+        return results;
+    }
+
+    void setResult(String result) {
+        results.add(result);
     }
 }

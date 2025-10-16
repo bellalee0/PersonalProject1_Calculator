@@ -20,12 +20,12 @@ public class App {
             int result = calculator.Calculate(num1, mark, num2);
             System.out.println("계산 결과: " + num1 + " " + mark + " " + num2 + " = " + result);
 
+            calculator.setResult(num1 + " " + mark + " " + num2 + " = " + result);
+            System.out.println("현재까지 진행된 계산 결과: " + calculator.getResult());
+
             scanner.nextLine();
             System.out.println("더 계산하시겠습니까?(exit 입력 시 종료): ");
             String exit = scanner.nextLine();
-
-            calculator.results.add(result);
-            System.out.println("현재까지 진행된 계산 결과: " + calculator.results);
 
             if (!exit.equals("exit")) {
                 System.out.println("새로운 계산을 시작합니다.");
