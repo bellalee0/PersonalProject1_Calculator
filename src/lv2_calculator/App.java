@@ -18,10 +18,17 @@ public class App {
             int num2 = scanner.nextInt();
 
             int result = calculator.Calculate(num1, mark, num2);
-            System.out.println("계산 결과: " + num1 + " " + mark + " " + num2 + " = " + result);
+            String printing_result = num1 + " " + mark + " " + num2 + " = " + result;
+            System.out.println("계산 결과: " + printing_result);
 
-            calculator.setResult(num1 + " " + mark + " " + num2 + " = " + result);
-            System.out.println("현재까지 진행된 계산 결과: " + calculator.getResult());
+            calculator.setResult(printing_result);
+
+            if (calculator.getResult().size() > 3) {
+                calculator.removeResult();
+                System.out.println("현재까지 진행된 계산: " + calculator.getResult());
+            } else {
+                System.out.println("현재까지 진행된 계산: " + calculator.getResult());
+            }
 
             scanner.nextLine();
             System.out.println("더 계산하시겠습니까?(exit 입력 시 종료): ");
