@@ -12,8 +12,11 @@ public class App {
 
             System.out.print("첫 번째 숫자를 입력하세요: ");
             int num1 = scanner.nextInt();
-            System.out.print("사칙연산 기호를 입력하세요: ");
+            System.out.print("사칙연산 기호를 입력하세요(+, -, *, /): ");
             char mark = scanner.next().charAt(0);
+            if (mark == '/' || mark == '%') {
+                System.out.println("※ 주의: 나눗셈 연산에서 분모에 0이 입력될 수 없습니다.");
+            }
             System.out.print("두 번째 숫자를 입력하세요: ");
             int num2 = scanner.nextInt();
 
