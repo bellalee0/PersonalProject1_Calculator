@@ -23,8 +23,8 @@ public enum OperatorType {
         this.cal = cal;
     }
 
-    //
-    public double execute(int x, int y) {
+    // 계산 메서드
+    public int execute(int x, int y) {
         return cal.calculate(x, y);
     }
 }
