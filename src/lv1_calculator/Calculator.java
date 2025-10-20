@@ -99,7 +99,7 @@ public class Calculator {
                 case '/' -> {
                     if (num2 == 0) {
                         System.out.println("나눗셈 연산에서 분모에 0이 입력될 수 없습니다");
-                    } else if (num2 > num1) {
+                    } else if (num2 % num1 > 0) {
                         double d_num1 = num1;
                         double d_num2 = num2;
                         double result2 = d_num1 / d_num2;
