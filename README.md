@@ -2,6 +2,8 @@
 
 프로젝트 기간 : 2025.10.15 ~ 10.21
 
+개발 환경 : Java OpenJDK 17
+
 ### ✅ Lv 1. 클래스 없이 자바의 기본 문법만을 사용하여 구현한 계산기
 1. 2개의 숫자(0을 포함한 양의 정수), 사칙연산 될 문자 받기
 2. 연산 결과 반환
@@ -12,11 +14,12 @@
 2. 계산된 결과 값들을 기록하는 컬렉션 생성
 3. 컬렉션의 가장 먼저 저장된 데이터를 삭제하는 기능 추가
 
-### ❎ Lv 3. 자바의 Enum, 제네릭, 람다 & 스트림을 적용한 계산기
+### 🔄 Lv 3. 자바의 Enum, 제네릭, 람다 & 스트림을 적용한 계산기
 1. ✅ Enum 타입을 활용하여 연산자 타입에 대한 정보 관리
-2. 제네릭을 활용해 실수(double)의 값을 받을 수 있도록 수정
-3. Lambda, Stream을 활용해 저장된 연산 결과 중 특정 값보다 큰 결과 값을 출력
+2. 🔄 제네릭을 활용해 실수(double)의 값을 받을 수 있도록 수정
+3. ✅ Lambda, Stream을 활용해 저장된 연산 결과 중 특정 값보다 큰 결과 값을 출력
+4. ✅ 추가 조회 기능 구현
 
-<img width="637" height="678" alt="Image" src="https://github.com/user-attachments/assets/6f665d0c-b682-4df8-82c2-9d22c6cc6d1c" />
+<img width="731" height="847" alt="Image" src="https://github.com/user-attachments/assets/c4042cad-12e4-4914-ba5b-44035b6239dc" />
 
 자세한 내용은 [노션](https://road-cartoon-1a1.notion.site/28c1d6e7a68c80b2a4ace5a8988a9875?source=copy_link)을 통해 작성해두었다
