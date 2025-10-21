@@ -59,24 +59,39 @@ public class App {
             System.out.println("계산 결과: " + result);
 
             calculator.setResult(result);
-            System.out.println("현재까지 진행된 계산: " + calculator.getResult());
+            System.out.println("현재까지 진행된 계산 결과: " + calculator.getResult());
 
             scanner.nextLine();
-
-            System.out.println("더 계산하시겠습니까?(exit 입력 시 종료): ");
-            String exit = scanner.nextLine();
-
-            if (exit.equalsIgnoreCase("research")) {
-                System.out.println("기준값을 입력해주세요: ");
-                int condition = scanner.nextInt();
-                calculator.conditionalResearch(condition);
-                System.out.println("기준값 이상인 계산 결과: " + calculator.conditionalResearch(condition));
+            String check;
+            while(true) {
+                System.out.println("더 계산하시겠습니까?");
+                System.out.println("(exit: 종료하기 / show: 모든 계산 결과 확인 / research: 기준값 이상의 결과만 확인) / remove: 원하는 결과 삭제하기 / 그 외: 새로운 계산 시작");
+                check = scanner.nextLine();
+                if (check.equalsIgnoreCase("research")) {
+                    System.out.println("기준값을 입력해주세요: ");
+                    int condition = scanner.nextInt();
+                    calculator.conditionalResearch(condition);
+                    System.out.println("기준값 이상인 계산 결과: " + calculator.conditionalResearch(condition));
+                    scanner.nextLine();
+                } else if (check.equalsIgnoreCase("show")) {
+                    System.out.println("현재까지 진행된 계산 결과: " + calculator.getResult());
+                } else if (check.equalsIgnoreCase("remove")) {
+                    System.out.println("삭제하려는 결과를 입력해주세요(중복된 결과값일 경우, 마지막 값이 삭제됩니다): ");
+                    int remove = scanner.nextInt();
+                    int removeindex = calculator.getResult().lastIndexOf(remove);
+                    calculator.removeResult(removeindex);
+                    System.out.println("결과: " + calculator.getResult());
+                    scanner.nextLine();
+                } else {
+                    break;
+                }
             }
 
-            else if (!exit.equals("exit")) {
-                System.out.println("새로운 계산을 시작합니다.");
-            } else if(exit.equals("exit")) {
+            String exit = check;
+            if (exit.equals("exit")) {
                 break;
+            } else {
+                System.out.println("새로운 계산을 시작합니다.");
             }
         }
     }

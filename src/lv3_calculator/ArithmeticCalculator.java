@@ -31,8 +31,8 @@ public class ArithmeticCalculator {
         results.add(result);
     }
 
-    void removeResult() {
-        results.remove(0);
+    void removeResult(int remove) {
+        results.remove(remove);
     }
 
     List<Integer> conditionalResearch(int condition) {
