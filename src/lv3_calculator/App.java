@@ -21,6 +21,7 @@ public class App {
                     scanner.nextLine();
                 }
             }
+            System.out.println(num1);
 
             char mark;
             while(true) {
@@ -106,6 +107,7 @@ public class App {
     }
 
     private static Number convertToNumber(String input) {
-        return input.contains(".") ? Double.parseDouble(input) : Integer.parseInt(input);
+        if (input.contains(".")) return Double.parseDouble(input);
+        else return Integer.parseInt(input);
     }
 }
