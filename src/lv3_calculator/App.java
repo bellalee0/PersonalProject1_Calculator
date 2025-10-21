@@ -80,7 +80,6 @@ public class App {
                 } else if (check.equalsIgnoreCase("research")) {
                     System.out.println("기준값을 입력해주세요: ");
                     int condition = scanner.nextInt();
-                    calculator.conditionalResearch(condition);
                     System.out.println("기준값 이상인 계산 결과: " + calculator.conditionalResearch(condition));
                     scanner.nextLine();
                 } else if (check.equalsIgnoreCase("remove")) {
