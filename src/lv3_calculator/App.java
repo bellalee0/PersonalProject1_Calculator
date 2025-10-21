@@ -79,12 +79,17 @@ public class App {
                 } else if (check.equalsIgnoreCase("show")) {
                     System.out.println("현재까지 진행된 계산 결과: " + calculator.getResult());
                 } else if (check.equalsIgnoreCase("remove")) {
-                    System.out.println("삭제하려는 결과를 입력해주세요(중복된 결과값일 경우, 마지막 값이 삭제됩니다): ");
+                    System.out.println("삭제하려는 결과값을 입력해주세요(중복된 결과값일 경우, 마지막 값이 삭제됩니다): ");
                     int remove = scanner.nextInt();
                     int removeindex = calculator.getResult().lastIndexOf(remove);
-                    calculator.removeResult(removeindex);
-                    System.out.println("결과: " + calculator.getResult());
-                    scanner.nextLine();
+                    try {
+                        calculator.removeResult(removeindex);
+                        System.out.println("결과: " + calculator.getResult());
+                        scanner.nextLine();
+                    }  catch (IndexOutOfBoundsException e) {
+                        System.out.println("해당 결과값이 존재하지 않습니다.");
+                        scanner.nextLine();
+                    }
                 } else if (check.equalsIgnoreCase("show -a")) {
                     System.out.println("현재까지 진행된 계산: " + calculator.getStringResults());
                 } else {
