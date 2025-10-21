@@ -22,7 +22,7 @@ public class App {
                     if (num1 < 0) System.out.println("잘못된 숫자입니다. 양의 정수(0 포함)를 입력해주세요.");
                 } catch  (InputMismatchException e) {
                     System.out.println("잘못된 숫자입니다. 양의 정수(0 포함)를 입력해주세요.");
-                    scanner.next();
+                    scanner.nextLine();
                 }
             }
 
@@ -44,7 +44,7 @@ public class App {
                     else if (num2 < 0) System.out.println("잘못된 숫자입니다. 양의 정수(0 포함)를 입력해주세요.");
                 } catch  (InputMismatchException e) {
                     System.out.println("잘못된 숫자입니다. 양의 정수(0 포함)를 입력해주세요.");
-                    scanner.next();
+                    scanner.nextLine();
                 }
             }
 
@@ -70,14 +70,16 @@ public class App {
                 System.out.println("더 계산하시겠습니까?");
                 System.out.println("(exit: 종료 / show: 모든 계산 결과 확인 / show -a: 수식과 결과 함께 확인 / research: 기준값 이상의 결과만 확인) / remove: 원하는 결과 삭제 / 그 외: 새로운 계산 시작");
                 check = scanner.nextLine();
-                if (check.equalsIgnoreCase("research")) {
+                if (check.equalsIgnoreCase("show")) {
+                    System.out.println("현재까지 진행된 계산 결과: " + calculator.getResult());
+                } else if (check.equalsIgnoreCase("show -a")) {
+                    System.out.println("현재까지 진행된 계산: " + calculator.getStringResults());
+                } else if (check.equalsIgnoreCase("research")) {
                     System.out.println("기준값을 입력해주세요: ");
                     int condition = scanner.nextInt();
                     calculator.conditionalResearch(condition);
                     System.out.println("기준값 이상인 계산 결과: " + calculator.conditionalResearch(condition));
                     scanner.nextLine();
-                } else if (check.equalsIgnoreCase("show")) {
-                    System.out.println("현재까지 진행된 계산 결과: " + calculator.getResult());
                 } else if (check.equalsIgnoreCase("remove")) {
                     System.out.println("삭제하려는 결과값을 입력해주세요(중복된 결과값일 경우, 마지막 값이 삭제됩니다): ");
                     int remove = scanner.nextInt();
@@ -90,8 +92,6 @@ public class App {
                         System.out.println("해당 결과값이 존재하지 않습니다.");
                         scanner.nextLine();
                     }
-                } else if (check.equalsIgnoreCase("show -a")) {
-                    System.out.println("현재까지 진행된 계산: " + calculator.getStringResults());
                 } else {
                     break;
                 }

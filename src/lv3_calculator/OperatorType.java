@@ -7,17 +7,14 @@ public enum OperatorType {
     TIMES("*", (x, y) -> x * y),
     DIVIDE("/", (x, y) -> x / y);
 
-    // 속성?
-    private Calculate cal; // 람다식을 생성할 필드
+    Calculate cal; // Calculate 인터페이스 가져오기
     private String mark;
 
-    // 생성자
     OperatorType(String mark, Calculate cal) {
         this.mark = mark;
         this.cal = cal;
     }
 
-    // 계산 메서드
     public int execute(int x, int y) {
         return cal.calculate(x, y);
     }
