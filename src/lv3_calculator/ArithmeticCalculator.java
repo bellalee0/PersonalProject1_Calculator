@@ -12,7 +12,7 @@ public class ArithmeticCalculator {
     OperatorType times = OperatorType.TIMES;
     OperatorType divide = OperatorType.DIVIDE;
 
-    public int Calculate(int num1, char mark, int num2) {
+    public int arithmeticCalculator(int num1, char mark, int num2) {
         int result = 0;
         switch (mark) {
             case '+' -> result = plus.execute(num1, num2);
@@ -31,8 +31,8 @@ public class ArithmeticCalculator {
         results.add(result);
     }
 
-    void removeResult(int remove) {
-        results.remove(remove);
+    void removeResult(int index) {
+        results.remove(index);
     }
 
     List<Integer> conditionalResearch(int condition) {
