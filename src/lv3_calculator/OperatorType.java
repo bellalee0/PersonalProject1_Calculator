@@ -4,10 +4,10 @@ import java.util.Arrays;
 
 public enum OperatorType {
     // 상수 메서드
-    PLUS('+', (x, y) -> x + y),
-    MINUS('-', (x, y) -> x - y),
-    TIMES('*', (x, y) -> x * y),
-    DIVIDE('/', (x, y) -> x / y);
+    PLUS('+', (x, y) -> x.doubleValue() + y.doubleValue()),
+    MINUS('-', (x, y) -> x.doubleValue() - y.doubleValue()),
+    TIMES('*', (x, y) -> x.doubleValue() * y.doubleValue()),
+    DIVIDE('/', (x, y) -> x.doubleValue() / y.doubleValue());
 
     Calculate cal; // Calculate 인터페이스 가져오기
     private char mark;
@@ -17,7 +17,7 @@ public enum OperatorType {
         this.cal = cal;
     }
 
-    int apply(int num1, int num2) {
+    Number apply(Number num1, Number num2) {
         return cal.calculate(num1, num2);
     }
 

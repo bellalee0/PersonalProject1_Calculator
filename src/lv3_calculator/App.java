@@ -10,22 +10,19 @@ public class App {
 
         while (true) {
 
-            int num1;
-            char mark;
-            int num2;
-
+            Number num1;
             while(true) {
                 System.out.print("첫 번째 숫자를 입력하세요: ");
                 try {
-                    num1 = scanner.nextInt();
-                    if (num1 >= 0) break;
-                    if (num1 < 0) System.out.println("잘못된 숫자입니다. 양의 정수(0 포함)를 입력해주세요.");
-                } catch  (InputMismatchException e) {
-                    System.out.println("잘못된 숫자입니다. 양의 정수(0 포함)를 입력해주세요.");
+                    num1 = convertToNumber(scanner.next());
+                    break;
+                } catch (NumberFormatException | InputMismatchException e) {
+                    System.out.println("잘못된 내용입니다. 숫자를 입력해주세요.");
                     scanner.nextLine();
                 }
             }
 
+            char mark;
             while(true) {
                 System.out.print("사칙연산 기호를 입력하세요(+, -, *, /): ");
                 mark = scanner.next().charAt(0);
@@ -37,23 +34,23 @@ public class App {
             }
             OperatorType operatorType = OperatorType.findMark(mark);
 
+            Number num2;
             while(true) {
                 System.out.print("두 번째 숫자를 입력하세요: ");
                 try {
-                    num2 = scanner.nextInt();
-                    if (num2 >= 0) break;
-                    else if (num2 < 0) System.out.println("잘못된 숫자입니다. 양의 정수(0 포함)를 입력해주세요.");
-                } catch  (InputMismatchException e) {
-                    System.out.println("잘못된 숫자입니다. 양의 정수(0 포함)를 입력해주세요.");
+                    num2 = convertToNumber(scanner.next());
+                    break;
+                } catch (NumberFormatException | InputMismatchException e) {
+                    System.out.println("잘못된 내용입니다. 숫자를 입력해주세요.");
                     scanner.nextLine();
                 }
             }
 
             ArithmeticCalculator calculator = new ArithmeticCalculator();
-            int result = 0;
+            Number result = 0;
             try {
                 result = calculator.arithmeticCalculator(num1, num2, operatorType);
-                if ((mark == '/' ) && num1 % num2 > 0) System.out.println("정수형 계산기이기에 소수점 아래는 버려집니다.");
+                if ((mark == '/' ) && num1.doubleValue() % num2.doubleValue() > 0) System.out.println("정수형 계산기이기에 소수점 아래는 버려집니다.");
             } catch (ArithmeticException e) {
                 System.out.println("분모 0으로 나눗셈 연산을 진행할 수 없습니다.");
             } catch (IllegalArgumentException e) {
@@ -106,5 +103,9 @@ public class App {
                 System.out.println("새로운 계산을 시작합니다.");
             }
         }
+    }
+
+    private static Number convertToNumber(String input) {
+        return input.contains(".") ? Double.parseDouble(input) : Integer.parseInt(input);
     }
 }

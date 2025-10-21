@@ -5,23 +5,22 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ArithmeticCalculator {
-    private List<Integer> results = new ArrayList<>();
+    private List<Number> results = new ArrayList<>();
     private List<String> stringResults = new ArrayList<>();
 
-    public int arithmeticCalculator(int num1, int num2, OperatorType operator) {
+    public <T extends Number, S extends Number> Number arithmeticCalculator(T num1, S num2, OperatorType operator) {
         return operator.apply(num1, num2);
     }
 
-    List<Integer> getResult() { return results; }
-    void setResult(int result) { results.add(result); }
+    List<Number> getResult() { return results; }
+    void setResult(Number result) { results.add(result); }
 
     List<String> getStringResults() { return stringResults; }
     void setStringResult(String stringResult) { stringResults.add(stringResult); }
 
-    void removeResult(int index) { results.remove(index); }
+    void removeResult(Number index) { results.remove(index); }
 
-    List<Integer> conditionalResearch(int condition) {
-        List<Integer> conditionalList = results.stream().filter(n -> n >= condition).collect(Collectors.toList());
-        return conditionalList;
+    List<Number> conditionalResearch(Number condition) {
+        return results.stream().filter(n -> n.doubleValue() >= condition.doubleValue()).collect(Collectors.toList());
     }
 }
