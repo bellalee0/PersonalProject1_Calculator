@@ -2,9 +2,10 @@ package lv3_calculator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ArithmeticCalculator {
-    private List<String> results = new ArrayList<String>();
+    private List<Integer> results = new ArrayList<Integer>();
     OperatorType plus = OperatorType.PLUS;
     OperatorType minus = OperatorType.MINUS;
     OperatorType times = OperatorType.TIMES;
@@ -22,15 +23,20 @@ public class ArithmeticCalculator {
         return result;
     }
 
-    List<String> getResult() {
+    List<Integer> getResult() {
         return results;
     }
 
-    void setResult(String result) {
+    void setResult(int result) {
         results.add(result);
     }
 
     void removeResult() {
         results.remove(0);
+    }
+
+    List<Integer> conditionalResearch(int condition) {
+        List<Integer> conditionalList = results.stream().filter(n -> n >= condition).collect(Collectors.toList());
+        return conditionalList;
     }
 }
