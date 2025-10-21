@@ -21,10 +21,9 @@ public class App {
             int num2 = scanner.nextInt();
 
             int result = calculator.Calculate(num1, mark, num2);
-            String printing_result = num1 + " " + mark + " " + num2 + " = " + result;
-            System.out.println("계산 결과: " + printing_result);
+            System.out.println("계산 결과: " + result);
 
-            calculator.setResult(printing_result);
+            calculator.setResult(result);
 
             if (calculator.getResult().size() > 3) {
                 calculator.removeResult();
@@ -37,9 +36,16 @@ public class App {
             System.out.println("더 계산하시겠습니까?(exit 입력 시 종료): ");
             String exit = scanner.nextLine();
 
-            if (!exit.equals("exit")) {
+            if (exit.equalsIgnoreCase("research")) {
+                System.out.println("기준값을 입력해주세요: ");
+                int condition = scanner.nextInt();
+                calculator.conditionalResearch(condition);
+                System.out.println("기준값 이상인 계산 결과: " + calculator.conditionalResearch(condition));
+            }
+
+            else if (!exit.equals("exit")) {
                 System.out.println("새로운 계산을 시작합니다.");
-            } else {
+            } else if(exit.equals("exit")) {
                 break;
             }
         }
