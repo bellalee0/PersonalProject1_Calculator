@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        ArithmeticCalculator calculator = new ArithmeticCalculator();
 
         Scanner scanner = new Scanner(System.in);
 
@@ -49,9 +48,10 @@ public class App {
                 }
             }
 
+            ArithmeticCalculator calculator = new ArithmeticCalculator();
             int result = 0;
             try {
-                result = calculator.Calculate(num1, mark, num2);
+                result = calculator.arithmeticCalculator(num1, mark, num2);
                 if ((mark == '/' || mark == '%') && num1 % num2 > 0) System.out.println("정수형 계산기이기에 소수점 아래는 버려집니다.");
             } catch (ArithmeticException e) {
                 System.out.println("분모 0으로 나눗셈 연산을 진행할 수 없습니다.");
