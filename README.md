@@ -16,10 +16,10 @@
 
 ### 🔄 Lv 3. 자바의 Enum, 제네릭, 람다 & 스트림을 적용한 계산기
 1. ✅ Enum 타입을 활용하여 연산자 타입에 대한 정보 관리
-2. 🔄 제네릭을 활용해 실수(double)의 값을 받을 수 있도록 수정
+2. ✅ 제네릭을 활용해 실수(double)의 값을 받을 수 있도록 수정
 3. ✅ Lambda, Stream을 활용해 저장된 연산 결과 중 특정 값보다 큰 결과 값을 출력
 4. ✅ 추가 조회 기능 구현
 
-<img width="731" height="847" alt="Image" src="https://github.com/user-attachments/assets/c4042cad-12e4-4914-ba5b-44035b6239dc" />
+<img width="806" height="847" alt="Image" src="https://github.com/user-attachments/assets/adfbacf0-96b3-4188-95b8-8477fe2aad5d" />
 
 자세한 내용은 [노션](https://road-cartoon-1a1.notion.site/28c1d6e7a68c80b2a4ace5a8988a9875?source=copy_link)을 통해 작성해두었다
