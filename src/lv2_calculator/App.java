@@ -54,7 +54,7 @@ public class App {
             try {
                 result = calculator.Calculate(num1, mark, num2);
                 printing_result = num1 + " " + mark + " " + num2 + " = " + result;
-                if (num1 % num2 > 0) System.out.println("정수형 계산기이기에 소수점 아래는 버려집니다.");
+                if ((mark == '/' || mark == '%') && num1 % num2 > 0) System.out.println("정수형 계산기이기에 소수점 아래는 버려집니다.");
             } catch (ArithmeticException e) {
                 System.out.println("분모 0으로 나눗셈 연산을 진행할 수 없습니다.");
             }
