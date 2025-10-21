@@ -29,12 +29,13 @@ public class App {
             while(true) {
                 System.out.print("사칙연산 기호를 입력하세요(+, -, *, /): ");
                 mark = scanner.next().charAt(0);
-                if (mark == '+'|| mark == '-'|| mark == '*'|| mark == 'x'|| mark == 'X') break;
-                else if (mark == '/' || mark == '%') {
+                if (mark == '+'|| mark == '-'|| mark == '*') break;
+                else if (mark == '/') {
                     System.out.println("※ 주의: 나눗셈 연산에서 분모에 0이 입력될 수 없습니다.");
                     break;
                 } else System.out.println("잘못된 기호입니다. +, -, *, / 4가지 기호 중 하나를 입력해 주세요.");
             }
+            OperatorType operatorType = OperatorType.findMark(mark);
 
             while(true) {
                 System.out.print("두 번째 숫자를 입력하세요: ");
@@ -51,10 +52,12 @@ public class App {
             ArithmeticCalculator calculator = new ArithmeticCalculator();
             int result = 0;
             try {
-                result = calculator.arithmeticCalculator(num1, mark, num2);
-                if ((mark == '/' || mark == '%') && num1 % num2 > 0) System.out.println("정수형 계산기이기에 소수점 아래는 버려집니다.");
+                result = calculator.arithmeticCalculator(num1, num2, operatorType);
+                if ((mark == '/' ) && num1 % num2 > 0) System.out.println("정수형 계산기이기에 소수점 아래는 버려집니다.");
             } catch (ArithmeticException e) {
                 System.out.println("분모 0으로 나눗셈 연산을 진행할 수 없습니다.");
+            } catch (IllegalArgumentException e) {
+                e.getMessage();
             }
             System.out.println("계산 결과: " + result);
 

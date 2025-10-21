@@ -7,21 +7,9 @@ import java.util.stream.Collectors;
 public class ArithmeticCalculator {
     private List<Integer> results = new ArrayList<>();
     private List<String> stringResults = new ArrayList<>();
-    OperatorType plus = OperatorType.PLUS;
-    OperatorType minus = OperatorType.MINUS;
-    OperatorType times = OperatorType.TIMES;
-    OperatorType divide = OperatorType.DIVIDE;
 
-    public int arithmeticCalculator(int num1, char mark, int num2) {
-        int result = 0;
-        switch (mark) {
-            case '+' -> result = plus.execute(num1, num2);
-            case '-' -> result = minus.execute(num1, num2);
-            case '*', 'x', 'X' -> result = times.execute(num1, num2);
-            case '/', '%' -> result = divide.execute(num1, num2);
-            default -> System.out.println("Invalid mark");
-        }
-        return result;
+    public int arithmeticCalculator(int num1, int num2, OperatorType operator) {
+        return operator.apply(num1, num2);
     }
 
     List<Integer> getResult() { return results; }
