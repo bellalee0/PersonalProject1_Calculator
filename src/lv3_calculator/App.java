@@ -61,11 +61,14 @@ public class App {
             calculator.setResult(result);
             System.out.println("현재까지 진행된 계산 결과: " + calculator.getResult());
 
+            String stringResult = num1 + " " + mark + " " + num2 + " = " + result;
+            calculator.setStringResult(stringResult);
+
             scanner.nextLine();
             String check;
             while(true) {
                 System.out.println("더 계산하시겠습니까?");
-                System.out.println("(exit: 종료하기 / show: 모든 계산 결과 확인 / research: 기준값 이상의 결과만 확인) / remove: 원하는 결과 삭제하기 / 그 외: 새로운 계산 시작");
+                System.out.println("(exit: 종료 / show: 모든 계산 결과 확인 / show -a: 수식과 결과 함께 확인 / research: 기준값 이상의 결과만 확인) / remove: 원하는 결과 삭제 / 그 외: 새로운 계산 시작");
                 check = scanner.nextLine();
                 if (check.equalsIgnoreCase("research")) {
                     System.out.println("기준값을 입력해주세요: ");
@@ -82,6 +85,8 @@ public class App {
                     calculator.removeResult(removeindex);
                     System.out.println("결과: " + calculator.getResult());
                     scanner.nextLine();
+                } else if (check.equalsIgnoreCase("show -a")) {
+                    System.out.println("현재까지 진행된 계산: " + calculator.getStringResults());
                 } else {
                     break;
                 }

@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 public class ArithmeticCalculator {
     private List<Integer> results = new ArrayList<Integer>();
+    private List<String> stringResults = new ArrayList<>();
     OperatorType plus = OperatorType.PLUS;
     OperatorType minus = OperatorType.MINUS;
     OperatorType times = OperatorType.TIMES;
@@ -26,7 +27,6 @@ public class ArithmeticCalculator {
     List<Integer> getResult() {
         return results;
     }
-
     void setResult(int result) {
         results.add(result);
     }
@@ -38,5 +38,12 @@ public class ArithmeticCalculator {
     List<Integer> conditionalResearch(int condition) {
         List<Integer> conditionalList = results.stream().filter(n -> n >= condition).collect(Collectors.toList());
         return conditionalList;
+    }
+
+    List<String> getStringResults() {
+        return stringResults;
+    }
+    void setStringResult(String stringResult) {
+        stringResults.add(stringResult);
     }
 }
